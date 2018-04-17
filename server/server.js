@@ -8,6 +8,8 @@ const { Todo } = require('./models/Todo')
 const { User } = require('./models/User')
 
 const app = express()
+const port = process.env.PORT || 3000;
+
 app.use(bodyParser.json())
 
 // post
@@ -49,16 +51,8 @@ app.get('/todos/:id', (req, res) => {
   }).catch((err) => {
     res.status(400).send()
   })
-
-
-
-
-  // res.send(req.params)
 })
 
-
-
-
-app.listen(3000, () => {
-  console.log('started om port 3000');
+app.listen(port, () => {
+  console.log(`started om port ${port}`);
 })
